@@ -79,3 +79,123 @@ This assignment aims to test your understanding of JavaScript basics, control st
 - Have fun and get creative!  
 
 Happy Coding! 💻✨  
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Assignment</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Page Header -->
+  <h1>JavaScript Assignment</h1>
+  <p>Learning JavaScript is fun!</p>
+
+  <!-- Dynamic Content Section -->
+  <div id="dynamic-content"></div>
+
+  <!-- Age Check Section -->
+  <div id="age-check"></div>
+
+  <!-- Calculator Section -->
+  <div id="calculator-result"></div>
+
+  <!-- Loop Section -->
+  <div>
+    <h2>Numbers from 1 to 10:</h2>
+    <ol id="number-list"></ol>
+  </div>
+</body>
+</html>
+
+
+// Part 1: JavaScript Basics
+
+// 1. Variables and Data Types
+let name = "John Doe";
+let age = 25;
+let isStudent = true;
+let hobbies = ["Reading", "Coding", "Traveling"];
+let person = { firstName: "John", lastName: "Doe", occupation: "Developer" };
+
+console.log(`Name: ${name} (Type: ${typeof name})`);
+console.log(`Age: ${age} (Type: ${typeof age})`);
+console.log(`Is Student: ${isStudent} (Type: ${typeof isStudent})`);
+console.log(`Hobbies: ${hobbies} (Type: ${typeof hobbies})`);
+console.log(`Person: ${JSON.stringify(person)} (Type: ${typeof person})`);
+
+// 2. Operators - Calculator Function
+function calculator() {
+  let num1 = parseFloat(prompt("Enter the first number:"));
+  let num2 = parseFloat(prompt("Enter the second number:"));
+  let operation = prompt("Choose an operation (+, -, *, /):");
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("Please enter valid numbers!");
+    return;
+  }
+
+  let result;
+  switch (operation) {
+    case "+":
+      result = num1 + num2;
+      break;
+    case "-":
+      result = num1 - num2;
+      break;
+    case "*":
+      result = num1 * num2;
+      break;
+    case "/":
+      result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+      break;
+    default:
+      result = "Invalid operation!";
+  }
+
+  document.getElementById("calculator-result").innerText = `Result: ${result}`;
+}
+
+calculator();
+
+// 3. Functions - Greeting Message
+function greetUser(name) {
+  return `Hello, ${name}! Welcome to the JavaScript Assignment.`;
+}
+
+const greetingMessage = greetUser("John");
+console.log(greetingMessage);
+
+// Part 2: JavaScript Control Structures
+
+// 4. If Statements - Age Check
+let userAge = parseInt(prompt("Enter your age:"));
+let ageCheckMessage =
+  userAge >= 18
+    ? "You are eligible to vote."
+    : "You are not eligible to vote yet.";
+document.getElementById("age-check").innerText = ageCheckMessage;
+
+// 5. Loops - Display Numbers
+let numberList = document.getElementById("number-list");
+for (let i = 1; i <= 10; i++) {
+  let listItem = document.createElement("li");
+  listItem.innerText = i;
+  numberList.appendChild(listItem);
+}
+
+// Part 3: Introduction to the DOM
+
+// 6. Change Heading Text
+document.querySelector("h1").innerText = "JavaScript in Action!";
+
+// 7. Add Dynamic Content
+let dynamicDiv = document.getElementById("dynamic-content");
+let newParagraph = document.createElement("p");
+newParagraph.innerText =
+  "This content was added dynamically using JavaScript.";
+dynamicDiv.appendChild(newParagraph);
+
